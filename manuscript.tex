@@ -99,7 +99,7 @@ locally wired graph, using a Bernoulli stochastic block model (SBM) with
 symmetric $\mathrm{Beta}$ priors as the detection rule: the plain cycle
 ($c=1$) is never partitioned ($r_\kappa=\infty$), while the next-nearest
 neighbour ring ($c=2$) acquires a finite $r_\kappa$ of a few tens of nodes,
-with a log-evidence growing as $(\ln 2)\,n$ \cite{...}.
+with a log-evidence growing as $(\ln 2)\,n$ \cite{vazquez2026ringwantsbroken}.
 
 Those results rest on a special feature of the ring: it is
 \emph{degree regular}. In a regular graph a two-block partition can only
@@ -178,17 +178,17 @@ This assigns a branch label $b\in\{0,1,2\}$ to each of the $n_t-3$ non-seed
 vertices, $(3^{t}-1)/2$ per branch, while the three seed hubs are shared. The
 natural recursive bipartition places one branch together with the three hubs in
 block~$1$, and the other two branches in block~$2$; it respects the
-$\mathbb{Z}_2$ symmetry exchanging the two branches of block~$2$. Writing
-$T\equiv t$ for brevity, the block sizes and the within/between edge counts are
-all closed form (verified against direct construction through $T=8$):
+$\mathbb{Z}_2$ symmetry exchanging the two branches of block~$2$. 
+The block sizes and the within/between edge counts are
+all closed form (verified against direct construction through $t=8$):
 \begin{align}
-n_1&=\tfrac{1}{2}\!\left(3^{T}+5\right), & n_2&=3^{T}-1,\label{eq:sizes}\\
-E_1&=3^{T}+2, & E_2&=2\cdot 3^{T}+2-2^{\,T+2},\label{eq:within}\\
-E_{12}&=2^{\,T+2}-4, & &\label{eq:between}
+n_1&=\tfrac{1}{2}\!\left(3^{t}+5\right), & n_2&=3^{t}-1,\label{eq:sizes}\\
+E_1&=3^{t}+2, & E_2&=2\cdot 3^{t}+2-2^{\,t+2},\label{eq:within}\\
+E_{12}&=2^{\,t+2}-4, & &\label{eq:between}
 \end{align}
-with $n_1+n_2=n_T$ and $E_1+E_2+E_{12}=E_T=3^{T+1}$. The seam between the two
-blocks is thin: $E_{12}=2^{T+2}-4$ grows only as $2^{T}=n^{\ln 2/\ln 3}\simeq
-n^{0.631}$, so the fraction of crossing edges $E_{12}/E_T\sim(2/3)^{T}\to 0$.
+with $n_1+n_2=n_t$ and $E_1+E_2+E_{12}=E_t=3^{t+1}$. The seam between the two
+blocks is thin: $E_{12}=2^{t+2}-4$ grows only as $2^{t}=n^{\ln 2/\ln 3}\simeq
+n^{0.631}$, so the fraction of crossing edges $E_{12}/E_t\sim(2/3)^{t}\to 0$.
 The two branches are joined by a vanishing density of edges
 (Fig.~\ref{fig:branch})---the structural fact that drives everything below.
 
@@ -196,10 +196,10 @@ The two branches are joined by a vanishing density of edges
 \centering
 \includegraphics[width=0.94\columnwidth]{partition_branch.pdf}
 \caption{The recursive branch partition of the pseudofractal web (generation
-$T=4$, $n=123$; node area $\propto$ degree). One descent branch together with
+$t=4$, $n=123$; node area $\propto$ degree). One descent branch together with
 the three seed hubs forms block~1; the other two branches form block~2. The two
 blocks are joined by only $E_{12}=60$ crossing edges (highlighted), a fraction
-$\sim(2/3)^{T}$ of all edges. This is the closed-form partition evaluated by
+$\sim(2/3)^{t}$ of all edges. This is the closed-form partition evaluated by
 both detection rules, and the one the degree-corrected model favours.}
 \label{fig:branch}
 \end{figure}
@@ -230,8 +230,8 @@ A block that carries no data integrates to a bare prior normaliser
 $\Bt(\alpha,\alpha)$ that does not cancel, a Bayesian Occam penalty for unused
 parameters. The unpartitioned network is the special case $n_1=0$: its two
 empty blocks each leave one $\Bt(\alpha,\alpha)$, its single occupied block sees
-all $E_T$ edges among $\binom{n_T}{2}$ pairs, and its label integral is
-$\Bt(\alpha,n_T{+}\alpha)$.
+all $E_t$ edges among $\binom{n_t}{2}$ pairs, and its label integral is
+$\Bt(\alpha,n_t{+}\alpha)$.
 
 % ======================================================================
 \section{Plain evidence ratio and its transition}
@@ -249,8 +249,8 @@ R=\frac{
 \Bt\!\big(E_{12}{+}\alpha,\,n_1 n_2{-}E_{12}{+}\alpha\big)\,
 \Bt\!\big(n_1{+}\alpha,\,n_2{+}\alpha\big)}
 {\Bt(\alpha,\alpha)^{2}\,
-\Bt\!\big(E_T{+}\alpha,\,\binom{n_T}{2}{-}E_T{+}\alpha\big)\,
-\Bt\!\big(\alpha,\,n_T{+}\alpha\big)},
+\Bt\!\big(E_t{+}\alpha,\,\binom{n_t}{2}{-}E_t{+}\alpha\big)\,
+\Bt\!\big(\alpha,\,n_t{+}\alpha\big)},
 \label{eq:R}
 \end{equation}
 \end{widetext}
@@ -267,13 +267,13 @@ term that supplies a transition. Evaluated in logarithmic form with
 \SI{80}{digit} arithmetic, $\log R$ is negative and decreasing for small
 generations and then turns sharply positive, Table~\ref{tab:plain}: the web is
 \emph{not} partitioned while small, and flips to preferring the partition at
-generation $T=6$, $n=1095$.
+generation $t=6$, $n=1095$.
 
 \begin{table}[t]
 \centering
 \begin{ruledtabular}
 \begin{tabular}{c c d d d c}
-$T$ & $n$ & \multicolumn{1}{c}{$\log R\ (\alpha{=}0.5)$}
+$t$ & $n$ & \multicolumn{1}{c}{$\log R\ (\alpha{=}0.5)$}
 & \multicolumn{1}{c}{$\log R\ (\alpha{=}1)$}
 & \multicolumn{1}{c}{$\log R\ (\alpha{=}2)$}
 & $P(\mathrm{split})$\\
@@ -287,14 +287,14 @@ $T$ & $n$ & \multicolumn{1}{c}{$\log R\ (\alpha{=}0.5)$}
 \end{tabular}
 \end{ruledtabular}
 \caption{Plain Bernoulli SBM: log-evidence ratio~\eqref{eq:R} for the recursive
-branch partition of the pseudofractal web. The sign changes between $T=5$ and
-$T=6$; $P(\mathrm{split})$ is for $\alpha=1$.}
+branch partition of the pseudofractal web. The sign changes between $t=5$ and
+$t=6$; $P(\mathrm{split})$ is for $\alpha=1$.}
 \label{tab:plain}
 \end{table}
 
 The asymptotics are obtained from the counts~\eqref{eq:sizes}--\eqref{eq:between}
-with Stirling's approximation. Writing $x\equiv 3^{T}$, every block is sparse
-($E\sim x$ edges among $\sim x^2$ pairs), the seam $E_{12}\sim 2^{T}$ and the
+with Stirling's approximation. Writing $x\equiv 3^{t}$, every block is sparse
+($E\sim x$ edges among $\sim x^2$ pairs), the seam $E_{12}\sim 2^{t}$ and the
 null label are subleading, and the $x\log x$ and $x$ terms cancel between split
 and null, leaving
 \begin{equation}
@@ -303,10 +303,10 @@ and null, leaving
 \label{eq:slope_plain}
 \end{equation}
 linear in $n$ and independent of the prior $\alpha$. The same scaling was obtained
-for the partition of the ring \cite{...}. A numerical fit of the discrete slope
+for the partition of the ring \cite{vazquez2026ringwantsbroken}. A numerical fit of the discrete slope
 $\Delta\log R/\Delta n$ converges to $0.636514$, matching
 Eq.~\eqref{eq:slope_plain} to six digits, with the residual falling as
-$(2/3)^{T}$.
+$(2/3)^{t}$.
 
 % ======================================================================
 \section{Degree-corrected evidence and the configuration-model null}
@@ -323,7 +323,7 @@ sequence, and the detection rule by a degree-corrected SBM.
 
 Model the (sparse) graph as a Poisson multigraph with degree-corrected rates
 $\langle A_{ij}\rangle=\theta_i\theta_j\,\omega_{g_i g_j}$ and
-$\theta_i=k_i/\sqrt{2m}$, where $2m=\sum_i k_i=2E_T$ and $g_i$ is the block of
+$\theta_i=k_i/\sqrt{2m}$, where $2m=\sum_i k_i=2E_t$ and $g_i$ is the block of
 $i$~\cite{karrer2011stochastic}. With this choice $\omega_{rs}=1$ reproduces the
 configuration model exactly, with expected block-pair edge counts
 \begin{equation}
@@ -357,11 +357,11 @@ The degree-corrected evidence ratio of the two-block partition to the
 one-block configuration null is
 \begin{equation}
 R_{\mathrm{dc}}=\frac{Z(E_1,\Om_{11})\,Z(E_2,\Om_{22})\,Z(E_{12},\Om_{12})}
-{Z(E_T,\Om_{\mathrm{tot}})},
+{Z(E_t,\Om_{\mathrm{tot}})},
 \label{eq:Rdc}
 \end{equation}
 \begin{equation}
-\Om_{\mathrm{tot}}=E_T,
+\Om_{\mathrm{tot}}=E_t,
 \end{equation}
 carrying an Occam factor $[\alpha^\alpha/\Gamma(\alpha)]^2$ for its two extra
 affinities, exactly parallel to the $\Bt(\alpha,\alpha)^2$ penalty of the plain
@@ -380,24 +380,24 @@ of modularity~\cite{newman2006modularity}.
 
 For the branch cut the block degree sums are again closed form,
 \begin{equation}
-\kappa_1=2\cdot 3^{T}+2^{\,T+2},\qquad
-\kappa_2=4\cdot 3^{T}-2^{\,T+2},
+\kappa_1=2\cdot 3^{t}+2^{\,t+2},\qquad
+\kappa_2=4\cdot 3^{t}-2^{\,t+2},
 \label{eq:kappas}
 \end{equation}
-with $\kappa_1+\kappa_2=2E_T$. Inserting~\eqref{eq:kappas} into
-Eq.~\eqref{eq:omega} gives, in the large-$T$ limit, within-block densities that
+with $\kappa_1+\kappa_2=2E_t$. Inserting~\eqref{eq:kappas} into
+Eq.~\eqref{eq:omega} gives, in the large-$t$ limit, within-block densities that
 \emph{exceed} the configuration-model expectation while the crossing density
 vanishes:
 \begin{equation}
 \frac{E_1}{\Om_{11}}\to 3,\qquad
 \frac{E_2}{\Om_{22}}\to \tfrac{3}{2},\qquad
-\frac{E_{12}}{\Om_{12}}\sim\Bigl(\tfrac{2}{3}\Bigr)^{T}\!\to 0 .
+\frac{E_{12}}{\Om_{12}}\sim\Bigl(\tfrac{2}{3}\Bigr)^{t}\!\to 0 .
 \label{eq:ratios}
 \end{equation}
 Both branches hold more internal edges than their degrees alone would place,
 and are joined by exponentially fewer crossing edges than expected: this is
 assortative community structure that is not reducible to the degree sequence.
-Consequently $\log R_{\mathrm{dc}}>0$ already from $T=3$ ($n=42$),
+Consequently $\log R_{\mathrm{dc}}>0$ already from $t=3$ ($n=42$),
 Table~\ref{tab:dc}, and grows as
 \begin{equation}
 \log R_{\mathrm{dc}}\;\sim\;\Bigl(2\ln 3-\tfrac{4}{3}\ln 2\Bigr)\,n
@@ -408,7 +408,7 @@ again prior independent, and \emph{exactly twice} the plain
 slope~\eqref{eq:slope_plain}, since
 $2\ln 3-\tfrac43\ln 2=2(\ln 3-\tfrac23\ln 2)$. The leading term follows from
 Eq.~\eqref{eq:KL} and the ratios~\eqref{eq:ratios}:
-$E_1\ln 3+E_2\ln\tfrac32\to 3^{T}(3\ln 3-2\ln 2)
+$E_1\ln 3+E_2\ln\tfrac32\to 3^{t}(3\ln 3-2\ln 2)
 =(2\ln 3-\tfrac43\ln 2)\,n$. The numerical slope converges to $1.273028$, confirming
 Eq.~\eqref{eq:slope_dc}.
 
@@ -416,7 +416,7 @@ Eq.~\eqref{eq:slope_dc}.
 \centering
 \begin{ruledtabular}
 \begin{tabular}{c c d d d}
-$T$ & $n$ & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}\ (\alpha{=}0.5)$}
+$t$ & $n$ & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}\ (\alpha{=}0.5)$}
 & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}\ (\alpha{=}1)$}
 & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}\ (\alpha{=}2)$}\\
 \hline
@@ -430,7 +430,7 @@ $T$ & $n$ & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}\ (\alpha{=}0.5)$}
 \end{ruledtabular}
 \caption{Degree-corrected (configuration-null) log-evidence
 ratio~\eqref{eq:Rdc} for the same branch partition. The sign changes between
-$T=2$ and $T=3$: the partition is preferred at far smaller sizes than under
+$t=2$ and $t=3$: the partition is preferred at far smaller sizes than under
 the plain model, Table~\ref{tab:plain}.}
 \label{tab:dc}
 \end{table}
@@ -447,7 +447,7 @@ two nulls.
 \centering
 \includegraphics[width=0.94\columnwidth]{partition_hubleaf.pdf}
 \caption{The hub--leaf (core--periphery) partition of the same web
-($T=4$), separating the highest-degree vertices (core) from the low-degree
+($t=4$), separating the highest-degree vertices (core) from the low-degree
 leaves (periphery). The plain Bernoulli SBM rates this cut far above the
 recursive one of Fig.~\ref{fig:branch}, but it merely tracks the degree
 gradient: the configuration-model null absorbs it, and the degree-corrected
@@ -458,17 +458,16 @@ cut far above the branch cut; degree correction inverts this, rating the
 recursive branch cut well above the hub--leaf one. In other words, the large
 plain evidence of the hub--leaf cut is mostly the degree gradient, which the
 configuration null absorbs, whereas the branch cut encodes structure that
-persists once degrees are fixed. (A local search over all bipartitions under
+persists once degrees are fixed. A local search over all bipartitions under
 $R_{\mathrm{dc}}$ finds an optimum that overlaps the branch cut by
 $\approx 65\%$; the closed-form branch cut is thus a tractable witness of the
-degree-corrected structure, not necessarily its global optimum---mirroring the
-role of the balanced arc for the ring.)
+degree-corrected structure, not necessarily its global optimum.
 
 \begin{table}[t]
 \centering
 \begin{ruledtabular}
 \begin{tabular}{c c c d d}
-$T$ & $n$ & cut & \multicolumn{1}{c}{plain $\log R$}
+$t$ & $n$ & cut & \multicolumn{1}{c}{plain $\log R$}
 & \multicolumn{1}{c}{$\log R_{\mathrm{dc}}$}\\
 \hline
 5 & 366  & branch          & -52.08 & 159.92\\
@@ -493,18 +492,18 @@ into one block, so the thin seam between them is misread as within-block
 structure. Separating all three branches should therefore fit better. Placing
 each branch with one seed hub in its own block gives a symmetric
 three-community partition whose counts are again closed form (verified through
-$T=8$):
+$t=8$):
 \begin{equation}
-n_r=\tfrac{1}{2}(3^{T}{+}1),\quad \kappa_r=2\cdot 3^{T},\quad
-e_{rr}=3^{T}{-}2^{T},\quad e_{rs}=2^{T},
+n_r=\tfrac{1}{2}(3^{t}{+}1),\quad \kappa_r=2\cdot 3^{t},\quad
+e_{rr}=3^{t}{-}2^{t},\quad e_{rs}=2^{t},
 \label{eq:three_counts}
 \end{equation}
 for each block $r$ and each pair $r\neq s$. With
-$\Omega_{rr}=3^{T}/3$ and $\Omega_{rs}=2\cdot 3^{T}/3$ from
+$\Omega_{rr}=3^{t}/3$ and $\Omega_{rs}=2\cdot 3^{t}/3$ from
 Eq.~\eqref{eq:omega}, every block is assortative and every seam vanishing,
 \begin{equation}
-\frac{e_{rr}}{\Omega_{rr}}=3\bigl(1-(2/3)^{T}\bigr)\to 3,\qquad
-\frac{e_{rs}}{\Omega_{rs}}=\tfrac{3}{2}(2/3)^{T}\to 0 ,
+\frac{e_{rr}}{\Omega_{rr}}=3\bigl(1-(2/3)^{t}\bigr)\to 3,\qquad
+\frac{e_{rs}}{\Omega_{rs}}=\tfrac{3}{2}(2/3)^{t}\to 0 ,
 \label{eq:three_ratios}
 \end{equation}
 a genuine three-community structure. Its degree-corrected evidence exceeds the
@@ -520,10 +519,10 @@ communities.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.94\columnwidth]{partition_3way.pdf}
-\caption{The symmetric three-community partition of the web ($T=4$), one
+\caption{The symmetric three-community partition of the web ($t=4$), one
 descent branch per block. All three within-block densities exceed the
 configuration-model expectation and all three seams (highlighted) vanish
-as $(2/3)^{T}$, so the degree-corrected evidence,
+as $(2/3)^{t}$, so the degree-corrected evidence,
 Eq.~\eqref{eq:slope3}, beats the two-block cut of Fig.~\ref{fig:branch}.}
 \label{fig:three}
 \end{figure}
@@ -541,7 +540,7 @@ so each additional level adds a further $\simeq 2\ln 3\,n$. Deeper partitions
 win until the blocks shrink to where the seams and the Occam penalty are no
 longer negligible. Over the accessible range $T\le 9$ the optimum sits at
 \begin{equation}
-K_{\mathrm{opt}}=3^{\lfloor T/2\rfloor}\sim\sqrt{n},
+K_{\mathrm{opt}}=3^{\lfloor t/2\rfloor}\sim\sqrt{n},
 \label{eq:kopt}
 \end{equation}
 so the web is best described by of order $\sqrt{n}$ communities of $\sim\sqrt{n}$
@@ -554,7 +553,7 @@ graphs~\cite{peixoto2014hierarchical}.
 \centering
 \begin{ruledtabular}
 \begin{tabular}{c c r r r r c}
-$T$ & $n$ & \multicolumn{1}{c}{$K{=}3$} & \multicolumn{1}{c}{$K{=}9$}
+$t$ & $n$ & \multicolumn{1}{c}{$K{=}3$} & \multicolumn{1}{c}{$K{=}9$}
 & \multicolumn{1}{c}{$K{=}27$} & \multicolumn{1}{c}{$K{=}81$}
 & $K_{\mathrm{opt}}$\\
 \hline
@@ -572,7 +571,7 @@ symmetric partition of Eq.~\eqref{eq:three_counts}; deeper levels: each
 generation-$d$ sub-web, with shared vertices attached to the majority
 neighbouring block). The maximum in each
 row (column $K_{\mathrm{opt}}$) shifts to finer resolution as the web grows,
-tracking $K_{\mathrm{opt}}=3^{\lfloor T/2\rfloor}\sim\sqrt{n}$,
+tracking $K_{\mathrm{opt}}=3^{\lfloor t/2\rfloor}\sim\sqrt{n}$,
 Eq.~\eqref{eq:kopt}.}
 \label{tab:hier}
 \end{table}
@@ -586,15 +585,14 @@ Following~\cite{vazquez2025ramsey}, the Ramsey community number is the minimum
 size at which the connectivity is preferentially described by communities to a
 prescribed certainty $q$,
 \begin{equation}
-r_\kappa(q)=\min\bigl\{\,n_T:\ P(\mathrm{split})\ge q\,\bigr\},
+r_\kappa(q)=\min\bigl\{\,n_t:\ P(\mathrm{split})\ge q\,\bigr\},
 \end{equation}
 with $P(\mathrm{split})$ from the relevant evidence ratio. Because the web
-exists only at the discrete sizes $n_T$ of Eq.~\eqref{eq:NE}, $r_\kappa$ takes
+exists only at the discrete sizes $n_t$ of Eq.~\eqref{eq:NE}, $r_\kappa$ takes
 one of those values. The results are collected in Table~\ref{tab:kappa}. Under
 the plain model the transition is so abrupt---$\log R$ leaps from $-52$ at
-$T=5$ to $+15$ at $T=6$ to $+506$ at $T=7$---that $r_\kappa=1095$ for every
-certainty level up to $q\simeq 1-10^{-5}$ and every prior $\alpha$, a step
-sharper than the ring's gradual crossover. Under degree correction the web
+$t=5$ ($n=366$) to $+15$ at $t=6$ ($n=1095$) to $+506$ at $t=7$ ($n=3282$)---that $r_\kappa=1095$ for every
+certainty level up to $q\simeq 1-10^{-5}$ and every prior $\alpha$. Under degree correction the web
 breaks at $r_\kappa=42$ ($q=\tfrac12$) or $123$ ($q\ge 0.9$), again essentially
 $\alpha$ independent.
 \begin{equation}
@@ -618,7 +616,7 @@ dc & 1.0 & 42 & 123 & 123 & 123\\
 dc & 2.0 & 42 & 123 & 123 & 123\\
 \end{tabular}
 \end{ruledtabular}
-\caption{Ramsey community number $r_\kappa^{q}$ (smallest generation size $n_T$
+\caption{Ramsey community number $r_\kappa^{q}$ (smallest generation size $n_t$
 with $P(\mathrm{split})\ge q$) for the pseudofractal web, under the plain
 Bernoulli SBM and the degree-corrected (dc) configuration-null model. Degree
 correction lowers $r_\kappa$ by more than an order of magnitude and is nearly
@@ -663,9 +661,9 @@ asymptotic slope, and the discrete generation sizes make $r_\kappa$ a sharp step
 as the partition is refined---each hierarchical level adding $\simeq2\ln 3\,n$,
 Eq.~\eqref{eq:sloped}---so the optimal description is not two or three
 communities but a nested hierarchy of
-$K_{\mathrm{opt}}=3^{\lfloor T/2\rfloor}\sim\sqrt{n}$ blocks.
+$K_{\mathrm{opt}}=3^{\lfloor t/2\rfloor}\sim\sqrt{n}$ blocks.
 
-Together with the companion ring calculation \cite{...}, these results extend the exactly
+Together with the companion ring calculation \cite{vazquez2026ringwantsbroken}, these results extend the exactly
 solvable theory of community emergence from a homogeneous graph to a strongly
 heterogeneous one, and supply the degree-correction control that a scale-free
 setting demands. They confirm that a purely local recursive rule can build
@@ -679,11 +677,14 @@ closed-form approach.
 \begin{acknowledgments}
 The calculations, computer scripts, and text of this manuscript were generated
 by Claude Opus 4.8 (Anthropic). The analytical results were verified with an
-accompanying open-source script, and the closed-form edge and degree counts
+accompanying open-source script at 
+\href{https://github.com/av2atgh/pseudofractalweb}{github.com/av2atgh/pseudofractalweb},
+and the closed-form edge and degree counts
 were checked against direct construction of the web through eight generations.
 \end{acknowledgments}
 
 \bibliographystyle{apsrev4-2}
-\bibliography{refs}
+%\bibliography{refs}
+\input{manuscript.bbl}
 
 \end{document}

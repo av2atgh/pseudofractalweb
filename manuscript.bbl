@@ -6,7 +6,7 @@
 %Control: page (0) single
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
-\begin{thebibliography}{10}%
+\begin{thebibliography}{11}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -94,6 +94,13 @@
   {journal} {\bibinfo  {journal} {Proc. London Math. Soc.}\ }\textbf {\bibinfo
   {volume} {s2-30}},\ \bibinfo {pages} {264} (\bibinfo {year}
   {1930})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Vazquez}(2026)}]{vazquez2026ringwantsbroken}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Vazquez}},\ }\href {https://arxiv.org/abs/2607.01967} {\bibinfo {title} {The
+  ring wants to be broken}} (\bibinfo {year} {2026}),\ \Eprint
+  {https://arxiv.org/abs/2607.01967} {arXiv:2607.01967 [physics.soc-ph]}
+  \BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Karrer}\ and\ \citenamefont
   {Newman}(2011)}]{karrer2011stochastic}%
   \BibitemOpen
